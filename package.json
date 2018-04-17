@@ -1,0 +1,26 @@
+{
+  "name": "json-lorem",
+  "version": "1.0.0",
+  "description": "lorem ipsum json advance",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/ava"
+  },
+  "keywords": [
+    "json",
+    "lorem",
+    "ipsum",
+    "advanced"
+  ],
+  "author": "Tibi Craciun",
+  "license": "MIT",
+  "dependencies": {
+    "chance": "^1.0.13",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.22.1"
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.4"
+  }
+}
