@@ -1,6 +1,6 @@
 {
   "name": "json-lorem",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "description": "lorem ipsum json advance",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,11 @@
   },
   "keywords": [
     "json",
+    "generator",
     "lorem",
     "ipsum",
-    "advanced"
+    "advanced",
+    "extensible"
   ],
   "author": "Tibi Craciun",
   "license": "MIT",
