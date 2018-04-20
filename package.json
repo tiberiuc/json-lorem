@@ -16,6 +16,10 @@
   ],
   "author": "Tibi Craciun",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiberiuc/json-lorem.git"
+  },
   "dependencies": {
     "chance": "^1.0.13",
     "faker": "^4.1.0",

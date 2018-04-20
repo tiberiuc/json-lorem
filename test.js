@@ -135,4 +135,19 @@ test('index inside template literals', t => {
   t.deepEqual(result, {tpl:['0']})
 })
 
+test('repeat() create different objects', t => {
+  const  data=`{
+    arr:[{
+      'repeat(3)':{
+        _id: objectID(),
+        lorem: lorem("paragraph"),
+      }
+    }]
+  }`
+
+  const {arr} = loremjson.generate(data)
+  const identical = arr[0].lorem === arr[1].lorem && arr[1].lorem === arr[2].lorem
+  t.not(identical, true)
+})
+
 

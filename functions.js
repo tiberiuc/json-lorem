@@ -4,7 +4,7 @@ const moment = require('moment')
 const faker = require('faker')
 const Chance = require('chance')
 
-const objectID = () => {
+const objectID = () => () => {
   const timestamp = (new Date().getTime() / 1000 | 0).toString(16)
   return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () => {
     return (Math.random() * 16 | 0).toString(16)
@@ -13,11 +13,11 @@ const objectID = () => {
 
 const index = () => function() { return this.index() }
 
-const lorem = (type = 'sentence', length=1) => {
+const lorem = (type = 'sentence', length=1) => () => {
   return faker.lorem[type](length)
 }
 
-const number = (min, max) => {
+const number = (min, max) => () => {
   if(!min && !max) {
     return faker.random.number()
   }
@@ -29,7 +29,7 @@ const number = (min, max) => {
   return faker.random.number({min, max})
 }
 
-const pastDate = format => {
+const pastDate = format => () => {
   const date = moment(faker.date.past())
 
   if(format) {
@@ -39,7 +39,7 @@ const pastDate = format => {
   return date.toString()
 }
 
-const futureDate = format => {
+const futureDate = format => () => {
   const date = moment(faker.date.future())
 
   if(format) {
@@ -49,26 +49,32 @@ const futureDate = format => {
   return date.toString()
 }
 
+const wrap = func => {
+  return () => () => {
+    return func.apply()
+  }
+}
+
 module.exports = {
   index,
   objectID,
   lorem,
-  email: faker.internet.email,
-  firstName: faker.name.firstName,
-  lastName: faker.name.lastName,
-  name: faker.name.findName,
-  phone: faker.phone.phoneNumber,
-  company: faker.company.companyName,
-  uuid: faker.random.uuid,
-  bool: faker.random.boolean,
-  city: faker.address.city,
-  country: faker.address.country,
+  email:wrap(faker.internet.email),
+  firstName:  wrap(faker.name.firstName),
+  lastName: wrap(faker.name.lastName),
+  name:  wrap(faker.name.findName),
+  phone: wrap(faker.phone.phoneNumber),
+  company: wrap(faker.company.companyName),
+  uuid: wrap(faker.random.uuid),
+  bool: wrap(faker.random.boolean),
+  city: wrap(faker.address.city),
+  country: wrap(faker.address.country),
   pastDate,
   futureDate,
   number,
-  random: _.sample,
-  state: faker.address.state,
-  street: faker.address.streetName,
+  random: arr =>  _.sample(arr),
+  state: wrap(faker.address.state),
+  street: wrap(faker.address.streetName),
   _,
   moment,
   faker,

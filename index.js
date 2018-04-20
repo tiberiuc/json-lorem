@@ -18,11 +18,11 @@ const runData = (data, context, opts) => {
 
     root = root || parent
     const currentData = !Array.isArray(current) ? current : {}
-    const newContext = Object.assign({}, context, currentData, {
+    const newContext = Object.assign({}, currentData, context, {
       getRoot : () => root,
       index: () => currentIndex,
       getParent: () => parent,
-    })
+    } )
 
     let result
     if(typeof val === 'function') {
@@ -51,10 +51,12 @@ const runData = (data, context, opts) => {
   const runRepeat = (min, max, obj, parent, currentIndex) => {
     const repeat = max ? getRandomInt(min, max+1) : min
 
+    const templateObj = _.cloneDeep(obj)
+
     for(let i=0; i<repeat; i++){
-      const result = runObject(obj, parent, i)
+      const result = runObject(templateObj, parent, i)
       if(Array.isArray(parent)){
-        parent.push(result)
+        parent.push(_.cloneDeep(result))
       } else {
         parent[i] = result
       }

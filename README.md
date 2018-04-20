@@ -6,6 +6,7 @@ Easy to use ( Javascript based templating ), very extensible ( add your own func
 - JS based templating system ( you can use JS functions or ES6 literal templates )
 - Easy to add your own functions or libraries to be use inside templates
 - Already packed with good stuff: faker, chancejs, lodash and momentjs ( more to come  )
+- Allow inline functions in template with access to current generated element ( this ), parentObject ( this.getParent() ), or root ( this.getRoot() )
 
 ## Install
 ```
@@ -23,11 +24,11 @@ $ npm install --save json-lorem
       name: '${firstName()} ${lastName()}',
       phone: phone(),
       company: company(),
-      avatar: faker.image.avatar()
+      avatar: () => faker.image.avatar()
     },
     messages: [
     {
-      'repeact(5)': {
+      'repeat(5)': {
         _id: objectID(),
         idx: index(),
         sender: function(){
@@ -38,6 +39,8 @@ $ npm install --save json-lorem
     }
     ]
   }`
+
+  const json = generate(template);
 
 ```
 
