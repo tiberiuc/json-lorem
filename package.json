@@ -1,6 +1,6 @@
 {
   "name": "json-lorem",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "lorem ipsum json advance",
   "main": "index.js",
   "scripts": {
