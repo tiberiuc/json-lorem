@@ -1,4 +1,4 @@
- # json-lorem
+# json-lorem
 Easy to use ( Javascript based templating ), very extensible ( add your own function ), fully loaded(faker, chancejs, lodash and momentjs are already added) custom JSON generator with fake data
 
 
