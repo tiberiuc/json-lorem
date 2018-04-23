@@ -9,9 +9,9 @@
       phone: phone(),
       name: name(),
       welcome: () => {
-        return `Welcome ${this.name}!`
+        return 'Welcome ${this.name}!'
       },
-      alert: 'You have ${number(10)()} unread messsages!',
+      alert: `You have ${number(10)()} unread messsages!`,
       eyeColor: random(['brown', 'blue', 'green']),
       lastLogin: pastDate(),
     }

@@ -22,11 +22,14 @@ const runData = (data, context, opts) => {
       getRoot : () => root,
       index: () => currentIndex,
       getParent: () => parent,
-    } )
+    }, (Array.isArray(current)) ? {}:current )
 
     let result
     if(typeof val === 'function') {
       result = runInContext(val, newContext)
+      if(typeof result === 'string') {
+        return evalInContext('`'+result+'`', newContext)
+      }
       return result
     }
 
