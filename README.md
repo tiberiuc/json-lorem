@@ -4,7 +4,7 @@ Easy to use ( Javascript based templating ), very extensible ( add your own func
 **This is in beta stage, there are bugs and functions are still unstable. Please use with caution !**
 
 ## Features
-- JS based templating system ( you can use JS functions or ES6 literal templates )
+- JS based templating system ( you can use JS functions or ES6 template literals - still need to decide if we still want to keep them )
 - Easy to add your own functions or libraries to be use inside templates
 - Already packed with good stuff: faker, chancejs, lodash and momentjs ( more to come  )
 - Allow inline functions in template with access to current generated element ( this ), parentObject ( this.getParent() ), or root ( this.getRoot() )
@@ -98,6 +98,10 @@ AVA is used as test runner. To run the tests, run
 ```
 npm test
 ```
+
+## TO DO
+- add more tests
+- ES6 template literals are very tricky. Need to decide if we are keeping them
 
 ## Contributors
 - [Tiberiu Craciun](https://github.com/tiberiuc)
