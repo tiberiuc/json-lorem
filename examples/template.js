@@ -1,6 +1,6 @@
 {
   persons: [{
-    'repeat(1)' : {
+    'repeat(3)' : {
       _id: objectID(),
       index: index(),
       uuid: uuid(),
@@ -17,7 +17,7 @@
     }
   }],
   messages: [{
-    'repeat(1))': {
+    'repeat(2)': {
       msg:{
         from: function () {
           return random(this.getRoot().persons)._id
